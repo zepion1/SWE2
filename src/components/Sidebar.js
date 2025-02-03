@@ -17,7 +17,6 @@ const Nav = styled.div`
 `;
 
 const NavIcon = styled(Link)`
-    margin-left: 2rem;
     font-size: 2rem;
     height: 80px;
     display: flex;
@@ -52,7 +51,7 @@ const SidebarLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 15px 20px; /* Consistent padding for all states */
+  padding: 15px 17px; /* Consistent padding for all states */
   margin: 5px 0; /* Consistent margin for spacing */
   text-decoration: none;
   font-size: 18px;

@@ -38,13 +38,13 @@ html, body{
 }
 
 .home-title{
-  font-size: larger;
+  font-size: xx-large;
   color: #d0d6d6;
   margin-bottom: 5px; /* Space below the title */
 }
 
 .features, .quicklinks {
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 20px;
   background-color: #181414; /* White background for sections to keep the design clean and modern */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds subtle shadows for a slight depth effect */
@@ -85,4 +85,74 @@ html, body{
   .link-grid {
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusts the size of the columns in smaller screens for better readability */
   }
+}
+
+.content-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+  grid-gap: 20px; /* Space between grid items */
+  margin-top: 20px; /* Space from quicklinks or header */;
+}
+
+.attendance-box {
+  background-color: #302828; /* original color #302828 */
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin-left: 30px;
+}
+
+.attendance-text {
+  text-align: left;
+  margin-bottom: 15px;
+  color: #d0d6d6;
+}
+
+.attendance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.attendance {
+  background-color: #9a9a9a;
+  border: 1px solid #302828;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.attendance:hover {
+  background-color: #bfbfbf; /* Lighter grey for hover */
+  border-color: #d0d6d6; /* Lighter border color on hover */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+.assigned-rooms-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #302828;
+  border-radius: 8px;
+  max-width: 500px;
+  max-height: 470px;
+  margin-left: 30px;
+}
+
+.assigned-rooms-text {
+  color: #d0d6d6;
+  margin-bottom: 10px;
+}
+
+.room-list {
+  display: grid;
+  grid-template-rows: repeat(auto-fit); 
+  gap: 10px;
+}
+
+.room-assignment {
+  background-color: #9a9a9a;
+  border: 1px solid #302828;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
