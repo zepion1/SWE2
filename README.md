@@ -1,7 +1,7 @@
 # MSU CardReader
 Before anything make sure the Magstripe reader is connected!
 
-Windows OS Only
+## Windows OS Only
 
 Requirements: MinGW
 
