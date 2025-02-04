@@ -46,7 +46,7 @@ html, body{
 .features, .quicklinks {
   margin-top: 0px;
   padding: 20px;
-  background-color: #181414; /* White background for sections to keep the design clean and modern */
+  background-color: #181414; /* Dark background color for contrast with the content */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds subtle shadows for a slight depth effect */
 }
 
@@ -60,7 +60,7 @@ html, body{
   margin: 10px;
   padding: 15px;
   background-color: #cc0000; /* Bright red background for attention-grabbing links */
-  color: #181414; /* White text for contrast and readability */
+  color: #181414; 
   text-align: center; /* Ensures content within each box is centered */
   border-radius: 5px; /* Soft rounded corners for a modern look */
 }
@@ -155,4 +155,34 @@ html, body{
   padding: 10px;
   border-radius: 5px;
   text-align: center;
+}
+
+.status-room-change-request-box{
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #302828;
+  border-radius: 8px;
+  max-width: 500px;
+  max-height: 470px;
+  margin-left: 30px;
+}
+
+.status-room-change-request-text{
+  color: #d0d6d6;
+  margin-bottom: 10px;
+}
+
+.calendar-box{
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #302828;
+  border-radius: 8px;
+  max-width: 500px;
+  max-height: 470px;
+  margin-left: 30px;
+}
+
+.calendar-text{
+  color: #d0d6d6;
+  margin-bottom: 10px;
 }

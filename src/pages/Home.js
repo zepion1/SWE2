@@ -1,4 +1,6 @@
 import React from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 // Sample data for class-room assignments
 const classRoomAssignments = [
@@ -53,6 +55,18 @@ const Home = () => {
                             ))}   
                     </div>
                 </div>
+
+                <div className="status-room-change-request-box">
+                    <h2 className="status-room-change-request-text">Room Change Request</h2>
+                    <div className="status-room-change-request">
+                        <span>Request Status: Pending (WORK IN PROGRESS)</span>
+                    </div>
+                </div>
+
+                <div className="calendar-box">
+                    <h2 className="calendar-text">Calendar(WORK IN PROGRESS)</h2>
+                    <Calendar />
+                    </div>
             </div>
             
         </div>
