@@ -12,7 +12,7 @@ Download [MinGW](https://winlibs.com/) and Unzip.
 Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
 
 #### Open Command line:
-Run the command:
+**Run the command:**
 
 ```powershell
 SET PATH=C:\MinGW\bin;%PATH%
@@ -21,7 +21,7 @@ SET PATH=C:\MinGW\bin;%PATH%
 # Compilation
 
 #### Download or Clone CardReader.c
-Open Command line
+**Open Command line**
 
 Run the command:
 ```powershell
