@@ -17,9 +17,7 @@ const classRoomAssignments = [
 const Home = () => {
 
     useEffect(() => {
-        console.log("Before setting title:", document.title);
-        document.title = "Home";
-        console.log("After setting title:", document.title);
+        document.title = "Home | MSU Companion";
     }, []);
 
     return (
