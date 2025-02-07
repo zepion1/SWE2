@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
@@ -15,6 +15,13 @@ const classRoomAssignments = [
 ];
 
 const Home = () => {
+
+    useEffect(() => {
+        console.log("Before setting title:", document.title);
+        document.title = "Home";
+        console.log("After setting title:", document.title);
+    }, []);
+
     return (
         <div className="home">
             <div className="home-header">

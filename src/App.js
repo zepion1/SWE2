@@ -10,7 +10,7 @@ function App() {
     <Router>  
       <Sidebar className="sidebar" />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/room-changes" element={<RoomChangeRequest />} />
         <Route path="/it-support" element={<ITSupport />} />
       </Routes>
