@@ -48,21 +48,28 @@ html, body{
   padding: 20px;
   background-color: #181414; /* Dark background color for contrast with the content */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds subtle shadows for a slight depth effect */
+  max-width: 500px;
 }
 
 .quicklink-text{
   font-size: 1.2em;
   color: #d0d6d6;
   margin-bottom: 10px; /* Space below the text */
+  text-align: center;
 }
 
 .feature, .link {
-  margin: 10px;
-  padding: 15px;
-  background-color: #cc0000; /* Bright red background for attention-grabbing links */
-  color: #181414; 
+  margin: .5em 0em;
+  padding: .7em 1.5em;
+  background-color: #D1190D; /* Bright red background for attention-grabbing links */
+  border: .15em solid #D1190D;
+  color: #fff; 
   text-align: center; /* Ensures content within each box is centered */
-  border-radius: 5px; /* Soft rounded corners for a modern look */
+  font-size: .84em;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+/*border-radius: 5px; /* Soft rounded corners for a modern look */
 }
 
 .link-grid {
