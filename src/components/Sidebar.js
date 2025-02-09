@@ -11,7 +11,7 @@ const Nav = styled.div`
     background: ${(props) => props.bgColor || '#B3001C'}; 
     height: 80px;
     display: flex;
-    justify-content: flext-start;
+    justify-content: flex-start;
     align-items: center;
     
 `;

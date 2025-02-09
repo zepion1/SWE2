@@ -43,49 +43,7 @@ html, body{
   margin-bottom: 5px; /* Space below the title */
 }
 
-.features, .quicklinks {
-  margin-top: 0px;
-  padding: 20px;
-  background-color: #181414; /* Dark background color for contrast with the content */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds subtle shadows for a slight depth effect */
-  max-width: 500px;
-}
 
-.quicklink-text{
-  font-size: 1.2em;
-  color: #d0d6d6;
-  margin-bottom: 10px; /* Space below the text */
-  text-align: center;
-}
-
-.feature, .link {
-  margin: .5em 0em;
-  padding: .7em 1.5em;
-  background-color: #D1190D; /* Bright red background for attention-grabbing links */
-  border: .15em solid #D1190D;
-  color: #fff; 
-  text-align: center; /* Ensures content within each box is centered */
-  font-size: .84em;
-  font-weight: 700;
-  font-family: 'Roboto', sans-serif;
-  display: inline-block;
-/*border-radius: 5px; /* Soft rounded corners for a modern look */
-}
-
-.link-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Creates a responsive grid layout that adjusts based on screen size */
-  gap: 10px; /* Adds space between grid items */
-}
-
-.link {
-  cursor: pointer; /* Changes the mouse cursor to a pointer to indicate clickable elements */
-  transition: background-color 0.3s; /* Smooth transition for background color change on hover */
-}
-
-.link:hover {
-  background-color: #e60000; /* Slightly lighter red on hover for interactive feedback */
-}
 
 /* Adding responsive behavior */
 @media (max-width: 768px) {
@@ -117,7 +75,7 @@ html, body{
 
 .attendance-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit);
   gap: 10px;
 }
 
@@ -136,12 +94,10 @@ html, body{
 }
 
 .assigned-rooms-box {
-  margin-top: 20px;
+  background-color: #302828; /* original color #302828 */
   padding: 15px;
-  background-color: #302828;
   border-radius: 8px;
   max-width: 500px;
-  max-height: 470px;
   margin-left: 30px;
 }
 
