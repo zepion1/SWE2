@@ -35,13 +35,13 @@ const Home = () => {
     const getStatusIcon = (status) => {
         switch (status) {
             case "Accepted":
-                return <img src={AcceptedIcon} alt="Accepted" style={{width: 24, height: 24}}/>;
+                return <img src={AcceptedIcon} alt="Accepted" style={{width: 180, height: 180}}/>;
             case "Denied":
-                return <img src={DeniedIcon}  alt="Denied"  style={{width: 24, height: 24}}/>;
+                return <img src={DeniedIcon}  alt="Denied"  style={{width: 180, height: 180}}/>;
             case "Pending":
-                return <img src={PendingIcon} alt="Pending" style={{width: 24, height: 24}}/>;
+                return <img src={PendingIcon} alt="Pending" style={{width: 180, height: 180}}/>;
             default:
-                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 24, height: 24}}/>;
+                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 180, height: 180}}/>;
         }
     };
 
@@ -87,9 +87,9 @@ const Home = () => {
                     <h2 className="status-room-change-request-text">Room Change Request (still work in progress)</h2>
                     <div className="room-change-status">
                         {getStatusIcon(roomChangeRequests[currentRequestIndex].status)}
-                        <span>{roomChangeRequests[currentRequestIndex].status}</span>
+                        <h3>{roomChangeRequests[currentRequestIndex].status}</h3>
                     </div>
-                    <button onClick={handleNextRequest}>Next Status</button>
+                    <button onClick={handleNextRequest}>Next Request(DEMO)</button>
                 </div>
 
                 <div className="calendar-box">

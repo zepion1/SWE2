@@ -6,7 +6,7 @@ import { ReactComponent as CanvasLogo } from "../images/canvaslogo.svg";
 export const SidebarData = [
     {
         title: "Home",
-        path: "/",
+        path: "/home",
         icon: <AiIcons.AiFillHome size={24}/>,
     },
     {
@@ -28,5 +28,11 @@ export const SidebarData = [
         title: "Gmail",
         path: "https://mail.google.com/mail/u/0/#inbox",
         icon: <AiIcons.AiOutlineMail size={24}/>,
+    },
+
+    //test login
+    {
+        title: "Login (TESTING)",
+        path: "/",
     }
 ];

@@ -135,6 +135,12 @@ html, body{
   margin-bottom: 10px;
 }
 
+.room-change-status{
+  color: #d0d6d6;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .calendar-box{
   margin-top: 20px;
   padding: 15px;
@@ -148,4 +154,92 @@ html, body{
 .calendar-text{
   color: #d0d6d6;
   margin-bottom: 10px;
+}
+
+.react-calendar{
+  background-color: #9a9a9a;
+  border: 1px solid #302828;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ================================================================= */
+/*LOGIN PAGE CSS */
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-left: -65px;
+  margin-top: -20px;
+  background-color: #181414; /* Dark background */
+}
+
+.login-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #d0d6d6;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #d0d6d6;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  background: #302828; /* Slightly lighter background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  font-size: 1rem;
+  color: #d0d6d6;
+  margin-bottom: 5px;
+}
+
+.login-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #9a9a9a;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #181414;
+  color: white;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #cc0000; /* Red highlight when focused */
+}
+
+button {
+  padding: 10px;
+  background-color: #cc0000;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #e60000;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .login-form {
+    width: 90%;
+  }
 }
