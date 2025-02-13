@@ -94,7 +94,7 @@ const Home = () => {
 
                 <div className="calendar-box">
                     <h2 className="calendar-text">Calendar(WORK IN PROGRESS)</h2>
-                    <Calendar className="react-calendar"/>
+                    <Calendar className="react-calendar" locale="en-US"/>
                     </div>
             </div>
             
