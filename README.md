@@ -9,8 +9,9 @@ Requirement for MacOS: cURL
 # Installation
 
 For Windows: Download [MinGW](https://winlibs.com/) and Unzip.
-For MacOS: ```bash
-              brew install curl
+For MacOS: 
+```bash
+brew install curl
 ```
 Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
 
