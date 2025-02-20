@@ -9,6 +9,7 @@ Requirement for MacOS: cURL
 # Installation
 
 For Windows: Download [MinGW](https://winlibs.com/) and Unzip.
+
 For MacOS: 
 ```bash
 brew install curl
