@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import AcceptedIcon from "../images/acceptedStatus.svg";
@@ -9,8 +9,8 @@ import NoneRequestsIcon from "../images/norequestStatus.svg";
 
 // Sample data for class-room assignments
 const classRoomAssignments = [
-    { class: "Class 1", room: "Room 101" },
-    { class: "Class 2", room: "Room 102" },
+    { class: "BIOL112_13SP25 Introduction to Biology", room: "CELS 120 (EX#1)" },
+    { class: "CSIT379_01SP25", room: "UNI 1020 (EX#2)" },
     { class: "Class 3", room: "Room 103" },
     { class: "Class 4", room: "Room 104" },
     { class: "Class 5", room: "Room 105" },
