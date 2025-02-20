@@ -1,14 +1,17 @@
 # MSU CardReader
 Before anything make sure the Magstripe reader is connected!
 
-## Windows OS Only
+## Windows OS & MacOS
 
-Requirements: MinGW
+Requirements for Windows: MinGW
+Requirement for MacOS: cURL
 
 # Installation
 
-Download [MinGW](https://winlibs.com/) and Unzip.
-
+For Windows: Download [MinGW](https://winlibs.com/) and Unzip.
+For MacOS: ```bash
+              brew install curl
+```
 Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
 
 #### Open Command line:
@@ -18,7 +21,7 @@ Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
 SET PATH=C:\MinGW\bin;%PATH%
 ```
 
-# Compilation
+# Compilation Windows
 
 #### Download or Clone CardReader.c
 **Open Command line**
@@ -28,3 +31,13 @@ Run the command:
 gcc -o CardReader.exe CardReader.c -lwininet
 ```
 Finally Execute: CardReader.exe
+
+# Compilation MacOS
+
+#### Download or clone CardReader_MACOS.c
+Run the command:
+```bash
+gcc -o CardReader_MACOS CardReader_MACOS.c -lcurl
+./CardReader_MACOS
+```
+**Make Sure the Magnetic Reader is connected properly!**
