@@ -68,7 +68,7 @@ html, body{
 }
 
 .attendance-text {
-  text-align: left;
+  text-align: center;
   margin-bottom: 15px;
   color: #d0d6d6;
 }
@@ -104,6 +104,7 @@ html, body{
 .assigned-rooms-text {
   color: #d0d6d6;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .room-list {
@@ -113,11 +114,12 @@ html, body{
 }
 
 .room-assignment {
-  background-color: #9a9a9a;
-  border: 1px solid #302828;
+  background-color: #302828;
+  border: 1px solid #d0d6d6;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
+  color:#d0d6d6;
 }
 
 .status-room-change-request-box{
@@ -133,6 +135,7 @@ html, body{
 .status-room-change-request-text{
   color: #d0d6d6;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .room-change-status{
@@ -154,6 +157,7 @@ html, body{
 .calendar-text{
   color: #d0d6d6;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 
@@ -162,6 +166,9 @@ html, body{
   background-color: #1e1e1e !important; /* Change this color */
   color: white !important; /* Ensure text is visible */
   border: none; /* Remove any unnecessary borders */
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 35px;
 }
 
 .react-calendar__month-view {
