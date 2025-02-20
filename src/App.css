@@ -71,9 +71,11 @@ html, body{
   text-align: left;
   margin-bottom: 15px;
   color: #d0d6d6;
+  margin-top: 5px;
 }
 
 .attendance-grid {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit);
   gap: 10px;
@@ -103,21 +105,25 @@ html, body{
 
 .assigned-rooms-text {
   color: #d0d6d6;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 .room-list {
   display: grid;
   grid-template-rows: repeat(auto-fit); 
   gap: 10px;
+  color: #d0d6d6;
 }
 
 .room-assignment {
-  background-color: #9a9a9a;
-  border: 1px solid #302828;
+  background-color: #302828;
+  border: 1px solid #9a9a9a;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
   padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+  text-align: left;
 }
 
 .status-room-change-request-box{
