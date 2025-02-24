@@ -28,7 +28,12 @@ html, body{
   justify-content: space-between; /* Space between the title and the search bar */
   align-items: center; /* Align items vertically */
   margin-left: -45px;
+  margin-top: -10px;
   padding: 10px 70px; /* Add consistent horizontal padding */
+  border: 1px solid #9a9a9a;
+  border-top: 0; /* Remove top border */
+  border-left: 0; /* Remove left border */
+  border-right: 0; /* Remove right border */
   
 }
 
@@ -119,11 +124,11 @@ html, body{
 
 .room-assignment {
   background-color: #302828;
-  border: 1px solid #d0d6d6;
-  background-color: #302828;
   border: 1px solid #9a9a9a;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
   padding: 10px;
-  border-radius: 5px;
   text-align: center;
   color:#d0d6d6;
 }
