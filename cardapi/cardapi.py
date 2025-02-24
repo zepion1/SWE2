@@ -16,7 +16,7 @@ def hello_world(name):
 def show_user_profile(username):
     return f"User {escape(username)}"
 
-@app.route("swipe-in/<cardid>")
+@app.route("/swipe-in/<cardid>")
 def scan_in_user(cardid):
     studentname = get_user_from_card(cardid)
     return f"{studentname} has been marked present"
