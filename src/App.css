@@ -322,7 +322,9 @@ button:hover {
   border: none;
   background-color: #cc0000;
   font-size: 16px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
+  margin-right: 5px;
+  color: white;
 }
 
 .tab:hover {
@@ -333,21 +335,21 @@ button:hover {
   background-color: #5b0000bc;
   color: white;
   font-weight: bold;
-  border: 2px solid #dfd8d8;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
+  border-bottom: 2px solid #dfd8d8;
 }
 
 .tab-content {
   text-align: center;
   padding: 20px;
   border: 1px solid #ddd;
-  background-color: white;
+  background-color: #9a9a9a;
   border-radius: 5px;
   max-width: 600px;
   margin: 0 auto;
+  margin-top: -1px;
 }
+
+
 
 /* ================================================================= */
 /* IT support CSS */
