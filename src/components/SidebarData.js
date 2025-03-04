@@ -30,9 +30,5 @@ export const SidebarData = [
         icon: <AiIcons.AiOutlineMail size={24}/>,
     },
 
-    //test login
-    {
-        title: "Login (TESTING)",
-        path: "/",
-    }
+    
 ];

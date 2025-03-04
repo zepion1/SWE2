@@ -84,7 +84,7 @@ const Home = () => {
                 </div>
 
                 <div className="status-room-change-request-box">
-                    <h2 className="status-room-change-request-text">Room Change Request (still work in progress)</h2>
+                    <h2 className="status-room-change-request-text">Room Change Request</h2>
                     <div className="room-change-status">
                         {getStatusIcon(roomChangeRequests[currentRequestIndex].status)}
                         <h3>{roomChangeRequests[currentRequestIndex].status}</h3>
@@ -93,7 +93,7 @@ const Home = () => {
                 </div>
 
                 <div className="calendar-box">
-                    <h2 className="calendar-text">Calendar(WORK IN PROGRESS)</h2>
+                    <h2 className="calendar-text">Calendar</h2>
                     <Calendar className="react-calendar" locale="en-US"/>
                     </div>
             </div>
