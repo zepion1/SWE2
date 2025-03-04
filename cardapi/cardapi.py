@@ -22,3 +22,15 @@ def scan_in_user(classid):
     cardid = request.args.get('id')
     message = scan_in_student(cardid, classid)
     return f"{message}"
+
+@app.route("/api/attendance", methods=['POST'])
+def get_card_scan():
+    data = request.form
+    if request.method == 'POST':
+        id = data.get("id")
+        timestamp = data.get("timestamp")
+        print(id)
+        print(timestamp)
+
+if __name__ == '__main__':
+    app.run(debug=True, host="127.0.0.1", port="5000")
