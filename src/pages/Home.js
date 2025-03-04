@@ -35,13 +35,13 @@ const Home = () => {
     const getStatusIcon = (status) => {
         switch (status) {
             case "Accepted":
-                return <img src={AcceptedIcon} alt="Accepted" style={{width: 180, height: 180}}/>;
+                return <img src={AcceptedIcon} alt="Accepted" style={{width: 220, height: 220}}/>;
             case "Denied":
-                return <img src={DeniedIcon}  alt="Denied"  style={{width: 180, height: 180}}/>;
+                return <img src={DeniedIcon}  alt="Denied"  style={{width: 220, height: 220}}/>;
             case "Pending":
-                return <img src={PendingIcon} alt="Pending" style={{width: 180, height: 180}}/>;
+                return <img src={PendingIcon} alt="Pending" style={{width: 220, height: 220}}/>;
             default:
-                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 180, height: 180}}/>;
+                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 220, height: 220}}/>;
         }
     };
 
