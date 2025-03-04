@@ -46,9 +46,9 @@ def scan_in_student(cardid, classid):
 
             if student:
                 sid = student[0]
-                print(type(sid), type(classid))
+                
                 cursor.execute("UPDATE attendance SET present = 1 WHERE sid = %s AND cid = %s", (sid, classid))
-                #result = cursor.execute("SELECT sid FROM student_ids WHERE card_num = %s", (sid,)) + " has been marked present"
+                
                 cursor.execute("SELECT fname, lname FROM student_ids WHERE sid = %s", (sid,))
                 studentrow = cursor.fetchone()
                 cursor.execute("SELECT cname FROM classes WHERE cid = %s", (classid,))
