@@ -31,6 +31,6 @@ def get_card_scan():
         timestamp = data.get("timestamp")
         print(id)
         print(timestamp)
-
+        
 if __name__ == '__main__':
     app.run(debug=True, host="127.0.0.1", port="5000")
