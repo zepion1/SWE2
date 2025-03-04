@@ -1,9 +1,45 @@
-# SWE2
-Software Engineering II Project
-# By Alan Geykhman, Joseph Tomkus, Rafael Galiano, Samuel Cordova, Marc Labib
+# MSU CardReader
+Before anything make sure the Magstripe reader is connected!
 
-## MSU Classroom Companion 
-### The Smart Classroom Management System aims to link physical classrooms with software and databases to streamline administration and faculty processes. Features include:
-### Scan-in attendance system
-### Web client for faculty to request room changes and IT support
-### Backend client for administration
+## Windows OS & MacOS
+
+Requirements for Windows: MinGW
+Requirement for MacOS: cURL
+
+# Installation
+
+For Windows: Download [MinGW](https://winlibs.com/) and Unzip.
+
+For MacOS: 
+```bash
+brew install curl
+```
+Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
+
+#### Open Command line:
+**Run the command:**
+
+```powershell
+SET PATH=C:\MinGW\bin;%PATH%
+```
+
+# Compilation Windows
+
+#### Download or Clone CardReader.c
+**Open Command line**
+
+Run the command:
+```powershell
+gcc -o CardReader.exe CardReader.c -lwininet
+```
+Finally Execute: CardReader.exe
+
+# Compilation MacOS
+
+#### Download or clone CardReader_MACOS.c
+Run the command:
+```bash
+gcc -o CardReader_MACOS CardReader_MACOS.c -lcurl
+./CardReader_MACOS
+```
+**Make Sure the Magnetic Reader is connected properly!**
