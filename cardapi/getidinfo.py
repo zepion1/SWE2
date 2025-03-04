@@ -49,15 +49,26 @@ def scan_in_student(cardid, classid):
                 
                 cursor.execute("UPDATE attendance SET present = 1 WHERE sid = %s AND cid = %s", (sid, classid))
                 
-                cursor.execute("SELECT fname, lname FROM student_ids WHERE sid = %s", (sid,))
-                studentrow = cursor.fetchone()
-                cursor.execute("SELECT cname FROM classes WHERE cid = %s", (classid,))
-                classrow = cursor.fetchone()
+                if cursor.rowcount == 0:
+                    cursor.execute("SELECT fname, lname FROM student_ids WHERE sid = %s", (sid,))
+                    studentrow = cursor.fetchone()
 
-                if studentrow and classrow:
-                    fname, lname = studentrow
+                    cursor.execute("SELECT cname FROM classes WHERE cid = %s", (classid,))
+                    classrow = cursor.fetchone()
+
+                    fname, lname, = studentrow
                     cname = classrow[0]
-                    result = f"{fname} {lname} has been marked present in {cname}"
+                    result = f"Error: {fname} {lname} is not enrolled in {cname}"
+                else:
+                    cursor.execute("SELECT fname, lname FROM student_ids WHERE sid = %s", (sid,))
+                    studentrow = cursor.fetchone()
+                    cursor.execute("SELECT cname FROM classes WHERE cid = %s", (classid,))
+                    classrow = cursor.fetchone()
+
+                    if studentrow and classrow:
+                        fname, lname = studentrow
+                        cname = classrow[0]
+                        result = f"{fname} {lname} has been marked present in {cname}"
 
     cnx.commit()
     cnx.close()
