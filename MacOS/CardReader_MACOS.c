@@ -39,16 +39,16 @@ void send_to_api(const char* id, const char* timestamp) {
 
     if (curl) {
         char postData[256];
-        snprintf(postData, sizeof(postData), "{\"id\": \"%s\", \"timestamp\": %s}", id, timestamp);
+        snprintf(postData, sizeof(postData), "id=%s&timestamp=%s", id, timestamp);
 
-        curl_easy_setopt(curl, CURLOPT_URL, ""); //URL for our attendance API
+        curl_easy_setopt(curl, CURLOPT_URL, "http://127.0.0.1:5000/api/attendance"); //URL for our attendance API
         curl_easy_setopt(curl, CURLOPT_POST, 1L);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, postData);
         curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, strlen(postData));
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL); 
 
         struct curl_slist *headers = NULL;
-        headers = curl_slist_append(headers, "Content-Type: application/json");
+        headers = curl_slist_append(headers, "Content-Type: text/html");
         curl_easy_setopt(curl, CURLOPT_HEADER, headers);
 
         res = curl_easy_perform(curl);
@@ -57,7 +57,7 @@ void send_to_api(const char* id, const char* timestamp) {
             fprintf(stderr, "Unable to send data to API: %s\n", curl_easy_strerror(res));
             printf("Try Again...\n");
         } else {
-            printf("Data sent successfully: %s\n", postData);
+            printf("\nData sent successfully: %s\n\n", postData);
             printf("Waiting for card scan...\n");
         }
 
