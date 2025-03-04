@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from markupsafe import escape
 from getidinfo import *
 
@@ -12,11 +12,13 @@ def index():
 def hello_world(name):
     return f"<p>Hello, {escape(name)}!</p>"
 
-@app.route("/user/<username>")
-def show_user_profile(username):
-    return f"User {escape(username)}"
+@app.route("/get-user/<cardid>")
+def show_user_profile(cardid):
+    studentname = get_user_from_card(cardid)
+    return f"{studentname} has been marked present"
 
 @app.route("/swipe-in/<cardid>")
 def scan_in_user(cardid):
-    studentname = get_user_from_card(cardid)
-    return f"{studentname} has been marked present"
+    classid = request.args.get('class')
+    message = scan_in_student(cardid, classid)
+    return f"{message}"

@@ -33,3 +33,29 @@ def get_user_from_card(cardid):
     #cursor.close() <= Commented out because the with cnx.cursor() as cursor block automatically closes the cursor when it's done
     cnx.close()
     return result
+
+def scan_in_student(cardid, classid):
+    connect_to_database()
+
+    result = "Student not found"
+
+    if cnx and cnx.is_connected():
+        with cnx.cursor() as cursor:
+            cursor.execute("SELECT sid FROM student_ids WHERE card_num = %s", (cardid,))
+            student = cursor.fetchone()
+
+            if student:
+                sid = student[0]
+                print(type(sid), type(classid))
+                cursor.execute("UPDATE attendance SET present = 1 WHERE sid = %s AND cid = %s", (sid, classid))
+                #result = cursor.execute("SELECT sid FROM student_ids WHERE card_num = %s", (sid,)) + " has been marked present"
+                cursor.execute("SELECT fname, lname FROM student_ids WHERE sid = %s", (sid,))
+                row = cursor.fetchone()
+
+                if row:
+                    fname, lname = row
+                    result = f"{fname} {lname} has been marked present"
+
+    cnx.commit()
+    cnx.close()
+    return result
