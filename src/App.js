@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import RoomChangeRequest from "./pages/RoomChangeRequest"; 
 import ITSupport from "./pages/ITSupport.js"; 
 import Login from "../src/pages/Login.js";
+import Attendance from "../src/pages/Attendance.js";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/room-changes" element={<RoomChangeRequest />} />
           <Route path="/it-support" element={<ITSupport />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/attendance/:className" element={<Attendance />} />
         </Routes>
       </Layout>
     </Router>

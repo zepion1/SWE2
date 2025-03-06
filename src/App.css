@@ -275,6 +275,68 @@ button:hover {
   }
 }
 
+.login-forgot-password {
+  text-align: center;
+  margin-bottom: 0px;
+  color: #acb3b3;
+
+}
+
+.login-forgot-password:hover {
+  color: #d0d6d6;
+  cursor: pointer;
+}
+
+
+/* ================================================================= */
+/* Attendance Page CSS */
+.attendance-page {
+  padding: 20px;
+  background-color: #181414; /* Dark background */
+  color: #d0d6d6; /* Light text color */
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto; /* Center the content */
+}
+
+.attendance-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #cc0000; /* Red color for the title */
+}
+
+.attendance-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.attendance-list li {
+  background-color: #302828; /* Darker background for list items */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendance-list li span {
+  font-size: 1rem;
+}
+
+.attendance-list li .status {
+  font-weight: bold;
+}
+
+.attendance-list li .status.present {
+  color: #00cc00; /* Green for present */
+}
+
+.attendance-list li .status.absent {
+  color: #cc0000; /* Red for absent */
+}
+
 /* ================================================================= */
 /* Room Change Request CSS */
 

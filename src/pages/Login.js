@@ -39,6 +39,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <button type="submit">Login</button>
+                <p className="login-forgot-password">Forgot password?</p>
             </form>
         </div>
     );

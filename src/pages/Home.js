@@ -5,6 +5,7 @@ import AcceptedIcon from "../images/acceptedStatus.svg";
 import PendingIcon from "../images/pendingStatus.svg";
 import DeniedIcon from "../images/deniedStatus.svg";
 import NoneRequestsIcon from "../images/norequestStatus.svg";
+import { Link } from "react-router-dom";
 
 
 // Sample data for class-room assignments
@@ -62,13 +63,13 @@ const Home = () => {
                 <div className="attendance-box">
                     <h2 className="attendance-text">Attendance</h2>
                     <div className="attendance-grid">
-                        <div className="attendance"><span>Class 1</span></div>
-                        <div className="attendance"><span>Class 2</span></div>
-                        <div className="attendance"><span>Class 3</span></div>
-                        <div className="attendance"><span>Class 4</span></div>
-                        <div className="attendance"><span>Class 5</span></div>
-                        <div className="attendance"><span>Class 6</span></div>
-                        <div className="attendance"><span>Class 7</span></div>
+                    {["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7"].map((className, index) => (
+                        <Link key={index} to={`/attendance/${className}`} style={{ textDecoration: 'none', color : 'black' }}>
+                            <div className="attendance">
+                                <span>{className}</span>
+                            </div>
+                        </Link>
+                    ))}
                     </div>
                 </div>
 
