@@ -10,12 +10,12 @@ import NoneRequestsIcon from "../images/norequestStatus.svg";
 // Sample data for class-room assignments
 const classRoomAssignments = [
     { class: "BIOL112_13SP25 Introduction to Biology", room: "CELS 120 (EX#1)" },
-    { class: "CSIT379_01SP25", room: "UNI 1020 (EX#2)" },
-    { class: "Class 3", room: "Room 103" },
-    { class: "Class 4", room: "Room 104" },
-    { class: "Class 5", room: "Room 105" },
-    { class: "Class 6", room: "Room 106" },
-    { class: "Class 7", room: "Room 107" },
+    { class: "CSIT379_01SP25 Computer Science Theory", room: "UNIV 1020 (EX#2)" },
+    { class: "CSIT415_01SP25 Software Engineering II", room: "CCIS 224 (EX#3)" },
+    { class: "CSIT340_02 Computer Networks", room: "CCIS 221 (EX#4)" },
+    { class: "CSIT231_02 Systems Programming", room: "RICH 114 (EX#5)" },
+    { class: "CSIT460_01 Computer Security", room: "CCIS 249 (EX#6)" },
+    { class: "CSIT345_02 Operating Systems", room: "CCIS 152 (EX#7)" },
 ];
 
 // Sample data for room change requests
