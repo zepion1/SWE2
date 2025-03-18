@@ -128,7 +128,6 @@ void read_card_input() {
 }
 
 int main() {
-
     read_card_input();
     return 0;
 }
