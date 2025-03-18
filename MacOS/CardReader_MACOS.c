@@ -5,6 +5,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <curl/curl.h>
+#include <ctype.h>
 
 #define MAX_INPUT_SIZE 64
 
@@ -30,7 +31,7 @@ void get_timestamp(char* buffer, size_t buffer_size) {
     strftime(buffer, buffer_size, "%m-%d-%Y %H:%M:%S", tm_info);
 }
 
-void send_to_api(const char* id, const char* timestamp) {
+void send_to_api(const char* id, const char* timestamp, int cid) {
     CURL *curl;
     CURLcode res;
 
@@ -39,7 +40,7 @@ void send_to_api(const char* id, const char* timestamp) {
 
     if (curl) {
         char postData[256];
-        snprintf(postData, sizeof(postData), "id=%s&timestamp=%s", id, timestamp);
+        snprintf(postData, sizeof(postData), "id=%s&timestamp=%s&cid=%d", id, timestamp, cid);
 
         curl_easy_setopt(curl, CURLOPT_URL, "http://127.0.0.1:5000/api/attendance"); //URL for our attendance API
         curl_easy_setopt(curl, CURLOPT_POST, 1L);
@@ -72,6 +73,19 @@ void read_card_input() {
     char scan_data[MAX_INPUT_SIZE];
     char id[20];
     char timestamp[20];
+    char classid[MAX_INPUT_SIZE];
+    int cid;
+
+    printf("Enter Class ID: ");
+    if (fgets(classid, sizeof(classid), stdin) != NULL ){
+        if(sscanf(classid, "%d", &cid) == 1){
+            printf("Class ID: %d\n", cid);
+        } else {
+            printf("Please enter valid ClassID.\n");
+        }
+    } else {
+        printf("Error reading input.\n");
+    }
 
     tcgetattr(STDIN_FILENO, &oldt);
     newt = oldt;
@@ -106,7 +120,7 @@ void read_card_input() {
             printf("Scanned ID: %s\n", id);
             printf("Timestamp: %s\n", timestamp);
 
-            send_to_api(id, timestamp);
+            send_to_api(id, timestamp, cid);
         }
     }
 
@@ -114,6 +128,7 @@ void read_card_input() {
 }
 
 int main() {
+
     read_card_input();
     return 0;
 }
