@@ -5,6 +5,7 @@ import AcceptedIcon from "../images/acceptedStatus.svg";
 import PendingIcon from "../images/pendingStatus.svg";
 import DeniedIcon from "../images/deniedStatus.svg";
 import NoneRequestsIcon from "../images/norequestStatus.svg";
+import { Link } from "react-router-dom";
 
 
 // Sample data for class-room assignments
@@ -35,13 +36,13 @@ const Home = () => {
     const getStatusIcon = (status) => {
         switch (status) {
             case "Accepted":
-                return <img src={AcceptedIcon} alt="Accepted" style={{width: 180, height: 180}}/>;
+                return <img src={AcceptedIcon} alt="Accepted" style={{width: 220, height: 220}}/>;
             case "Denied":
-                return <img src={DeniedIcon}  alt="Denied"  style={{width: 180, height: 180}}/>;
+                return <img src={DeniedIcon}  alt="Denied"  style={{width: 220, height: 220}}/>;
             case "Pending":
-                return <img src={PendingIcon} alt="Pending" style={{width: 180, height: 180}}/>;
+                return <img src={PendingIcon} alt="Pending" style={{width: 220, height: 220}}/>;
             default:
-                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 180, height: 180}}/>;
+                return <img src={NoneRequestsIcon} alt="No Requests" style={{width: 220, height: 220}}/>;
         }
     };
 
@@ -62,13 +63,13 @@ const Home = () => {
                 <div className="attendance-box">
                     <h2 className="attendance-text">Attendance</h2>
                     <div className="attendance-grid">
-                        <div className="attendance"><span>Class 1</span></div>
-                        <div className="attendance"><span>Class 2</span></div>
-                        <div className="attendance"><span>Class 3</span></div>
-                        <div className="attendance"><span>Class 4</span></div>
-                        <div className="attendance"><span>Class 5</span></div>
-                        <div className="attendance"><span>Class 6</span></div>
-                        <div className="attendance"><span>Class 7</span></div>
+                    {["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7"].map((className, index) => (
+                        <Link key={index} to={`/attendance/${className}`} style={{ textDecoration: 'none', color : 'black' }}>
+                            <div className="attendance">
+                                <span>{className}</span>
+                            </div>
+                        </Link>
+                    ))}
                     </div>
                 </div>
 
@@ -84,7 +85,7 @@ const Home = () => {
                 </div>
 
                 <div className="status-room-change-request-box">
-                    <h2 className="status-room-change-request-text">Room Change Request (still work in progress)</h2>
+                    <h2 className="status-room-change-request-text">Room Change Request</h2>
                     <div className="room-change-status">
                         {getStatusIcon(roomChangeRequests[currentRequestIndex].status)}
                         <h3>{roomChangeRequests[currentRequestIndex].status}</h3>
@@ -93,7 +94,7 @@ const Home = () => {
                 </div>
 
                 <div className="calendar-box">
-                    <h2 className="calendar-text">Calendar(WORK IN PROGRESS)</h2>
+                    <h2 className="calendar-text">Calendar</h2>
                     <Calendar className="react-calendar" locale="en-US"/>
                     </div>
             </div>
