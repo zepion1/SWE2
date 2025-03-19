@@ -17,11 +17,12 @@ def show_user_profile(cardid):
     studentname = get_user_from_card(cardid)
     return f"{studentname} has been marked present"
 
-@app.route("/swipe-in/<classid>", methods=['POST'])
-def scan_in_user(classid):
+@app.route("/swipe-in/", methods=['POST'])
+def scan_in_user():
     data = request.form
     if request.method == 'POST':
         cardid = data.get('id')
+        classid = data.get('cid')
         message = scan_in_student(cardid, classid)
         return f"{message}"
 
