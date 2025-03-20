@@ -1,98 +1,43 @@
 import React, { useEffect, useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import AcceptedIcon from "../images/acceptedStatus.svg";
-import PendingIcon from "../images/pendingStatus.svg";
-import DeniedIcon from "../images/deniedStatus.svg";
-import NoneRequestsIcon from "../images/norequestStatus.svg";
+import AttendanceIcon from "../images/attendance.png";
+import AssignedRoomsIcon from "../images/assignedroom.png";
+import RoomChangeIcon from "../images/roomchange.png";
+import CalendarIcon from "../images/calendar.png";
 import { Link } from "react-router-dom";
 
-// Sample data for class-room assignments
-const classRoomAssignments = [
-    { class: "BIOL112_13SP25 Introduction to Biology", room: "CELS 120 (EX#1)" },
-    { class: "CSIT379_01SP25 Computer Science Theory", room: "UNIV 1020 (EX#2)" },
-    { class: "CSIT415_01SP25 Software Engineering II", room: "CCIS 224 (EX#3)" },
-    { class: "CSIT340_02 Computer Networks", room: "CCIS 221 (EX#4)" },
-    { class: "CSIT231_02 Systems Programming", room: "RICH 114 (EX#5)" },
-    { class: "CSIT460_01 Computer Security", room: "CCIS 249 (EX#6)" },
-    { class: "CSIT345_02 Operating Systems", room: "CCIS 152 (EX#7)" },
-];
 
-// Sample data for room change requests
-const roomChangeRequests = [
-    { id: 1, status: "Accepted" },
-    { id: 2, status: "Denied" },
-    { id: 3, status: "Pending" },
-];
 
 const Home = () => {
     useEffect(() => {
         document.title = "Home | MSU Companion";
     }, []);
 
-    const getStatusIcon = (status) => {
-        switch (status) {
-            case "Accepted":
-                return <img src={AcceptedIcon} alt="Accepted" style={{ width: 220, height: 220 }} />;
-            case "Denied":
-                return <img src={DeniedIcon} alt="Denied" style={{ width: 220, height: 220 }} />;
-            case "Pending":
-                return <img src={PendingIcon} alt="Pending" style={{ width: 220, height: 220 }} />;
-            default:
-                return <img src={NoneRequestsIcon} alt="No Requests" style={{ width: 220, height: 220 }} />;
-        }
-    };
-
-    const [currentRequestIndex, setCurrentRequestIndex] = useState(0);
-
-    const handleNextRequest = () => {
-        setCurrentRequestIndex((currentRequestIndex + 1) % roomChangeRequests.length);
-    };
+    
 
     return (
         <div className="home">
             <div className="home-header">
                 <h1 className="home-title">MSU Companion</h1>
+                <p className="home-subtitle">Welcome User to your personalized MSU Companion! Please click on one the boxes below to start navigating!</p>
             </div>
 
-            <div className="content-grid">
-                <div className="attendance-box">
-                    <h2 className="attendance-text">Attendance</h2>
-                    <div className="attendance-grid">
-                        {["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7"].map((className, index) => (
-                            <Link key={index} to={`/attendance/${className}`} style={{ textDecoration: 'none', color: 'black' }}>
-                                <div className="attendance">
-                                    <span>{className}</span>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="assigned-rooms-box">
-                    <h2 className="assigned-rooms-text">Assigned Rooms</h2>
-                    <div className="room-list">
-                        {classRoomAssignments.map((assignment, index) => (
-                            <div key={index} className="room-assignment">
-                                <span>{assignment.class} - {assignment.room}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="status-room-change-request-box">
-                    <h2 className="status-room-change-request-text">Room Change Request</h2>
-                    <div className="room-change-status">
-                        {getStatusIcon(roomChangeRequests[currentRequestIndex].status)}
-                        <h3>{roomChangeRequests[currentRequestIndex].status}</h3>
-                    </div>
-                    <button onClick={handleNextRequest}>Next Request (DEMO)</button>
-                </div>
-
-                <div className="calendar-box">
-                    <h2 className="calendar-text">Calendar</h2>
-                    <Calendar className="react-calendar" locale="en-US" />
-                </div>
+            <div className="quicklinks-grid">
+                <Link to="/attendance" className="quicklink-box">
+                    <img src={AttendanceIcon} alt="Attendance" className="quicklink-icon" />
+                    <h2>Attendance</h2>
+                </Link>
+                <Link to="/assigned-rooms" className="quicklink-box">
+                    <img src={AssignedRoomsIcon} alt="Assigned Rooms" className="quicklink-icon" />
+                    <h2>Assigned Rooms</h2>
+                </Link>
+                <Link to="/room-changes" className="quicklink-box">
+                    <img src={RoomChangeIcon} alt="Room Change Request" className="quicklink-icon" />
+                    <h2>Room Change Request</h2>
+                </Link>
+                <Link to="/calendar" className="quicklink-box">
+                    <img src={CalendarIcon} alt="Calendar" className="quicklink-icon" />
+                    <h2>Calendar</h2>
+                </Link>
             </div>
         </div>
     );

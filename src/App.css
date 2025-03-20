@@ -17,182 +17,74 @@ html, body{
 }
 
 /* ================================================================= */
-/* home css */
-.home{
+/* Home Page CSS */
+.home {
   display: block;
   padding-bottom: auto;
+  background-color: #181414;
+  color: #d0d6d6;
 }
 
-.home-header{
+.home-header {
   display: flex;
-  justify-content: space-between; /* Space between the title and the search bar */
-  align-items: center; /* Align items vertically */
-  margin-left: -45px;
-  margin-top: -10px;
-  padding: 10px 70px; /* Add consistent horizontal padding */
-  border: 1px solid #9a9a9a;
-  border-top: 0; /* Remove top border */
-  border-left: 0; /* Remove left border */
-  border-right: 0; /* Remove right border */
-  
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #9a9a9a;
 }
 
-.home-body{
-  margin-top: 10px; /* Add some spacing below the header */
-  padding: 0 70px; /* Align with the header */
+.home-title {
+  font-size: 2.5rem;
+  color: #cc0000;
+  margin-bottom: 10px;
 }
 
-.home-title{
-  font-size: xx-large;
+.home-subtitle {
+  font-size: 1.2rem;
   color: #d0d6d6;
-  margin-bottom: 5px; /* Space below the title */
-}
-
-
-
-/* Adding responsive behavior */
-@media (max-width: 768px) {
-  .link-grid {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusts the size of the columns in smaller screens for better readability */
-  }
-}
-
-.content-grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
-  grid-gap: 20px; /* Space between grid items */
-  margin-top: 20px; /* Space from quicklinks or header */;
-}
-
-.attendance-box {
-  background-color: #302828; /* original color #302828 */
-  padding: 15px;
-  border-radius: 8px;
-  max-width: 500px;
-  margin-left: 30px;
-}
-
-.attendance-text {
   text-align: center;
-  margin-bottom: 15px;
-  color: #d0d6d6;
-  margin-top: 5px;
-}
-
-.attendance-grid {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit);
-  gap: 10px;
-}
-
-.attendance {
-  background-color: #9a9a9a;
-  border: 1px solid #302828;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.attendance:hover {
-  background-color: #bfbfbf; /* Lighter grey for hover */
-  border-color: #d0d6d6; /* Lighter border color on hover */
-  cursor: pointer; /* Change cursor to indicate it's clickable */
-}
-
-.assigned-rooms-box {
-  background-color: #302828; /* original color #302828 */
-  padding: 15px;
-  border-radius: 8px;
-  max-width: 500px;
-  margin-left: 30px;
-}
-
-.assigned-rooms-text {
-  color: #d0d6d6;
   margin-bottom: 20px;
-  text-align: center;
-  margin-top: 5px;
 }
 
-.room-list {
+.quicklinks-grid {
+  margin-top: 20px;
   display: grid;
-  grid-template-rows: repeat(auto-fit); 
-  gap: 10px;
-  color: #d0d6d6;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
 }
 
-.room-assignment {
+.quicklink-box {
   background-color: #302828;
-  border: 1px solid #9a9a9a;
-  border-right: 0;
-  border-left: 0;
-  border-top: 0;
-  padding: 10px;
-  text-align: center;
-  color:#d0d6d6;
-}
-
-.status-room-change-request-box{
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #302828;
+  padding: 20px;
   border-radius: 8px;
-  max-width: 500px;
-  max-height: 470px;
-  margin-left: 30px;
-}
-
-.status-room-change-request-text{
-  color: #d0d6d6;
-  margin-bottom: 10px;
   text-align: center;
-}
-
-.room-change-status{
+  transition: background-color 0.3s ease;
+  text-decoration: none;
   color: #d0d6d6;
+}
+
+.quicklink-box:hover {
+  background-color: #cc0000;
+  color: white;
+}
+
+.quicklink-box h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.quicklink-icon {
+  width: 100px;
+  height: 100px;
   margin-bottom: 10px;
-  text-align: center;
 }
 
-.calendar-box{
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #302828;
-  border-radius: 8px;
-  max-width: 500px;
-  max-height: 470px;
-  margin-left: 30px;
-}
-
-.calendar-text{
-  color: #d0d6d6;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-
-.react-calendar {
-  background-color: #1e1e1e !important; /* Change this color */
-  color: white !important; /* Ensure text is visible */
-  border: none; /* Remove any unnecessary borders */
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 35px;
-}
-
-.react-calendar__month-view {
-  background-color: #2a2a2a !important; /* Adjust the color inside the calendar */
-}
-
-.react-calendar__navigation {
-  background-color: #3a3a3a !important; /* Change navigation bar color */
-}
-
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile--now {
-  color: #2a2a2a;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quicklinks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
 
 /* ================================================================= */
@@ -289,6 +181,47 @@ button:hover {
 
 
 /* ================================================================= */
+/* Assigned Rooms Page CSS */
+.assigned-rooms {
+  padding: 20px;
+  background-color: #181414; /* Dark background */
+  color: #d0d6d6; /* Light text color */
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto; /* Center the content */
+}
+
+.assigned-rooms-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #cc0000; /* Red color for the title */
+}
+
+.room-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.room-assignment {
+  background-color: #302828; /* Darker background for list items */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.room-assignment span {
+  font-size: 1rem;
+  color: #d0d6d6;
+}
+
+
+/* ================================================================= */
 /* Attendance Page CSS */
 .attendance-page {
   padding: 20px;
@@ -319,6 +252,19 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.attendance-link {
+  text-decoration: none;
+  color: #d0d6d6;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.attendance-link:hover {
+  color: #cc0000; /* Red color on hover */
 }
 
 .attendance-list li span {
@@ -409,6 +355,56 @@ button:hover {
   max-width: 600px;
   margin: 0 auto;
   margin-top: -1px;
+}
+
+
+/* ================================================================= */
+/* Calendar Page CSS */
+.calendar-page {
+  padding: 20px;
+  background-color: #181414; /* Dark background */
+  color: #181a1a; /* Light text color */
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 20px auto; /* Center the content */
+}
+
+.calendar-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #cc0000; /* Red color for the title */
+}
+
+.react-calendar {
+  width: 100%;
+  background-color: #302828; /* Darker background for the calendar */
+  border: none;
+  border-radius: 8px;
+  color: #d0d6d6; /* Light text color */
+}
+
+.react-calendar__tile {
+  background-color: #302828; /* Darker background for the tiles */
+  color: #d0d6d6; /* Light text color */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #cc0000; /* Red background on hover and focus */
+  color: rgb(148, 51, 51); /* White text color on hover and focus */
+}
+
+.react-calendar__tile--active {
+  background-color: #cc0000; /* Red background for active tile */
+  color: rgb(128, 128, 128); /* White text color for active tile */
+}
+
+.react-calendar__tile--now {
+  background-color: #5b0000bc; /* Dark red background for current date */
+  color: rgb(17, 15, 15); /* White text color for current date */
 }
 
 
