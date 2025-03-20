@@ -7,6 +7,10 @@ const Attendance = () => {
         { name: "Class 1", id: 1 },
         { name: "Class 2", id: 2 },
         { name: "Class 3", id: 3 },
+        { name: "Class 4", id: 4 },
+        { name: "Class 5", id: 5 },
+        { name: "Class 6", id: 6 },
+        { name: "Class 7", id: 7 },
     ];
 
     return (

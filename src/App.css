@@ -246,9 +246,9 @@ button:hover {
 
 .attendance-list li {
   background-color: #302828; /* Darker background for list items */
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
