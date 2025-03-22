@@ -27,5 +27,5 @@ if __name__ == "__main__":
         database="project_database",
     )
     #change values to test various enrollements
-    print(validate_enrollment(connection, 50011122, 2))
+    print(validate_enrollment(connection, 50011122, 1))
     

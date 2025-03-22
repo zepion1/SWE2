@@ -3,40 +3,40 @@ CREATE TABLE IF NOT EXISTS students (
   name VARCHAR(255) NOT NULL
 );
 
-INSERT INTO students (name, cwid) VALUES
-('John Goblikon', '50011122'),
-('Han Solo', '50022233'),
-('Captain Underpants', '50034567'),
-('Charlie XCX', '50099999'),
-('Leonardo DaVinci', '50100001');
+CREATE TABLE IF NOT EXISTS courses (
+  courseID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  courseName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS professors (
+  professorID INT(8) PRIMARY KEY NOT NULL,
+  professorName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS classrooms (
+  classroomID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  building varchar(10) NOT NULL,
+  room INT(4) NOT NULL
+);
 
 CREATE TABLE IF NOT EXISTS sections (
-  sectionID INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  courseName VARCHAR(255) NOT NULL,
+  sectionID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   section INT(8) NOT NULL,
-  professor VARCHAR(255) NOT NULL
+  #Foreign Elements
+  courseID INT NOT NULL,
+  professorID INT NOT NULL,
+  classroomID INT NOT NULL,
+  FOREIGN KEY (courseID) REFERENCES courses(courseID),
+  FOREIGN KEY (professorID) REFERENCES professors(professorID),
+  FOREIGN KEY (classroomID) REFERENCES classrooms(classroomID)
 );
-
-INSERT INTO sections (courseName, section, professor) VALUES
-('Robotics', '1', 'Dr.Robotnic'),
-('Robotics', '2', 'Dr.Robotnic'),
-('Programming', '1', 'Ms.Mia'),
-('Programming', '2', 'Ms.Mia'),
-('Programming', '3', 'Ms.Mia');
 
 CREATE TABLE IF NOT EXISTS enrolled (
-  sectionID INT(8) NOT NULL,
+  eid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  #Foreign Elements
+  sectionID INT NOT NULL,
   cwid INT(8) NOT NULL,
   FOREIGN KEY (sectionID) REFERENCES sections(sectionID),
-  FOREIGN KEY (cwid) REFERENCES students(cwid),
-  eid INT PRIMARY KEY NOT NULL AUTO_INCREMENT
+  FOREIGN KEY (cwid) REFERENCES students(cwid)
 );
 
-INSERT INTO enrolled (sectionID, cwid) VALUES
-('1','50011122'),
-('3','50011122'),
-('2','50022233'),
-('4','50022233'),
-('5','50099999'),
-('1','50100001'),
-('5','50100001');
