@@ -18,11 +18,11 @@ void send_to_api(const char *id, const char *timestamp)
 {
 
     HINTERNET hSession, hConnect, hRequest;
-    const char *server = "";              // REPLACE WITH WEBSITE ADDRESS EXAMPLE: "MSU-COMPANION-API.COM/Attendance"
-    const char *endpoint = "/Attendance"; // API endpoint
+    const char *server = "http://127.0.0.1:3000";
+    const char *endpoint = "/swipe-in/";
     char postData[256];
     const char *headers = "Content-Type: application/x-www-form-urlencoded\r\n";
-    snprintf(postData, sizeof(postData), "id=%s&timestamp=%s", id, timestamp);
+    snprintf(postData, sizeof(postData), "id=%s&timestamp=%s&cid=%d", id, timestamp, cid); // Class id entering has not yet been implemented in this program (Windows version)
 
     hSession = InternetOpen("Attendance", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
     if (!hSession)
