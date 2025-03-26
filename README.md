@@ -69,6 +69,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+# Python Virtual Environment
+## Installing a virtual environment
+In the terminal, run the following command:
+```zsh
+python3 -m venv .venv
+```
+Then, activate the virtual environment with the following command:
+```zsh
+source .venv/bin/activate
+```
+You should see `(.venv)` to the left of the username in the terminal. This means that the virtual environment has been activated.
+Once it has been activated, install the necessary Python dependencies by running:
+```zsh
+pip install -r requirements.txt
+```
+
 # Flask API
 This API should be running on port 5000.
 ## Activate the Flask app
