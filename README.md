@@ -1,3 +1,20 @@
+# Flask API
+This API should be running on port 5000.
+## Activate the Flask app
+
+If Flask is not yet installed, run:
+```zsh
+pip install Flask
+```
+In a new Terminal window, enter:
+```zsh
+cd cardapi
+```
+Finally, run the Flask app:
+```zsh
+flask --app cardapi run
+```
+
 # MSU CardReader
 Before anything make sure the Magstripe reader is connected!
 
