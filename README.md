@@ -68,3 +68,66 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Flask API
+This API should be running on port 5000.
+## Activate the Flask app
+
+If Flask is not yet installed, run:
+```zsh
+pip install Flask
+```
+In a new Terminal window, enter:
+```zsh
+cd cardapi
+```
+Finally, run the Flask app:
+```zsh
+flask --app cardapi run
+```
+
+# MSU CardReader
+Before anything make sure the Magstripe reader is connected!
+
+## Windows OS & MacOS
+
+Requirements for Windows: MinGW
+Requirement for MacOS: cURL
+
+# Installation
+
+For Windows: Download [MinGW](https://winlibs.com/) and Unzip.
+
+For MacOS: 
+```bash
+brew install curl
+```
+Rename the folder to "MinGW" and Copy "MinGW" folder to "C:\\" drive
+
+#### Open Command line:
+**Run the command:**
+
+```powershell
+SET PATH=C:\MinGW\bin;%PATH%
+```
+
+# Compilation Windows
+
+#### Download or Clone CardReader.c
+**Open Command line**
+
+Run the command:
+```powershell
+gcc -o CardReader.exe CardReader.c -lwininet
+```
+Finally Execute: CardReader.exe
+
+# Compilation MacOS
+
+#### Download or clone CardReader_MACOS.c
+Run the command:
+```bash
+gcc -o CardReader_MACOS CardReader_MACOS.c -lcurl
+./CardReader_MACOS
+```
+**Make Sure the Magnetic Reader is connected properly!**
