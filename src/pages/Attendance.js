@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Attendance = () => {
-    // Example data for classes (replace with actual data)
-    const classes = [
-        { name: "Class 1", id: 1 },
-        { name: "Class 2", id: 2 },
-        { name: "Class 3", id: 3 },
-        { name: "Class 4", id: 4 },
-        { name: "Class 5", id: 5 },
-        { name: "Class 6", id: 6 },
-        { name: "Class 7", id: 7 },
-    ];
+function Attendance() {
+    const [classes, setClasses] = useState([]);
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:5000/get-classes/')
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = data.map(item => ({
+                    cid: item[0],
+                    cname: item[1]
+                }));
+
+                setClasses(formattedData);
+            })
+            .catch(error => console.error('Error fetching list of classes:', error));
+    }, []);
 
     return (
         <div className="attendance-page">
             <h1>Attendance</h1>
             <ul className="attendance-list">
                 {classes.map((classItem) => (
-                    <li key={classItem.id}>
-                        <Link to={`/attendance/${classItem.name}`} className="attendance-link">
-                            {classItem.name}
+                    <li key={classItem.cid}>
+                        <Link to={`/attendance/${classItem.cid}`} className="attendance-link">
+                            {classItem.cname}
                         </Link>
                     </li>
                 ))}
