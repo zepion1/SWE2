@@ -24,6 +24,11 @@ def return_class_list():
     classlist = get_all_classes()
     return jsonify(classlist)
 
+@app.route("/get-attendance-info/<classid>")
+def fetch_attendance_info(classid):
+    attendance = get_attendance_info(classid)
+    return jsonify(attendance)
+
 @app.route("/swipe-in/", methods=['POST'])
 def scan_in_user():
     data = request.form

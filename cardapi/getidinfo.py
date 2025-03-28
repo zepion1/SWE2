@@ -30,6 +30,20 @@ def get_all_classes():
     cnx.close()
     return result
 
+def get_attendance_info(classid):
+    connect_to_database()
+
+    if cnx and cnx.is_connected():
+        with cnx.cursor() as cursor:
+            cursor.execute("SELECT S.sid, S.fname, S.lname, A.present FROM student_ids S, attendance A WHERE S.sid = A.sid AND A.cid = %s", (classid,))
+
+            result = cursor.fetchall()
+    else:
+        result = []
+    
+    cnx.close()
+    return result
+
 def get_user_from_card(cardid):
     connect_to_database()
 
