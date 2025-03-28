@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from markupsafe import escape
 from getidinfo import *
 
@@ -16,6 +16,11 @@ def hello_world(name):
 def show_user_profile(cardid):
     studentname = get_user_from_card(cardid)
     return f"{studentname} has been marked present"
+
+@app.route("/get-classes/")
+def return_class_list():
+    classlist = get_all_classes()
+    return jsonify(classlist)
 
 @app.route("/swipe-in/", methods=['POST'])
 def scan_in_user():

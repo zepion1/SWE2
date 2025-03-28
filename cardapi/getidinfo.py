@@ -16,6 +16,20 @@ def connect_to_database():
     global cnx
     cnx = mysql.connector.connect(**config)
 
+def get_all_classes():
+    connect_to_database()
+
+    if cnx and cnx.is_connected():
+        with cnx.cursor() as cursor:
+            cursor.execute("SELECT cid, cname FROM classes")
+
+            result = cursor.fetchall()
+    else:
+        result = []
+    
+    cnx.close()
+    return result
+
 def get_user_from_card(cardid):
     connect_to_database()
 
