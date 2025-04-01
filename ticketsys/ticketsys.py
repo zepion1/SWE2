@@ -30,7 +30,7 @@ def Create_Ticket():
         description = data.get('description')
         if connection and connection.is_connected():
             with connection.cursor() as cursor:
-                cursor.execute("""INSERT INTO tickets (TicketID, Title, Email, Hall, Room, Description, Status) VALUES
+                cursor.execute("""INSERT INTO tickets (TicketID, Title, Email, hall, room, descript, Status) VALUES
                             (%s, %s, %s, %s, %s, %s , 'OPEN' )""", (ticket_id, title, email, hall, room, description,))
         connection.close()
     return f"Ticket ID: {ticket_id} has been created!"
