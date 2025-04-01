@@ -160,6 +160,17 @@ button:hover {
   background-color: #e60000;
 }
 
+button.sync-button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: #8d8d8d !important;
+  color: black;
+}
+
+button.sync-button:hover {
+  background-color: #b2b2b2 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 400px) {
   .login-form {

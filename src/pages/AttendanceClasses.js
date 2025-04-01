@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import { ReactComponent as SyncIcon } from "./sync-svg.svg";
 
 const AttendanceClasses = () => {
     const { className } = useParams();
@@ -9,7 +9,7 @@ const AttendanceClasses = () => {
     const [attendanceData, setAttendanceData] = useState([]);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
-    const [resetTrigger, setResetTrigger] = useState(0);
+    const [syncTrigger, setSyncTrigger] = useState(0);
 
     useEffect(() => {
         setLoading(true);
@@ -31,7 +31,11 @@ const AttendanceClasses = () => {
         })
 
         .catch(error => console.error('Error fetching attendance data:', error));
-    }, [className, resetTrigger]);
+    }, [className, syncTrigger]);
+
+    const syncAttData = () => {
+        setSyncTrigger(prev => prev + 1);
+    }
 
     const handleReset = async () => {
             setLoading(true);
@@ -43,7 +47,7 @@ const AttendanceClasses = () => {
                     throw new Error(`HTTP ERROR: ${response.status}`);
                 }
 
-                setResetTrigger(prev => prev + 1);
+                syncAttData();
          } catch (err) {
                 setError(err);
             } finally {
@@ -54,6 +58,8 @@ const AttendanceClasses = () => {
     return (
         <div className="attendance-page">
             <h1>Attendance for {className}</h1>{/*  Need to change this so it shows the class name instead of the id */}
+            <button className="sync-button" onClick={syncAttData} disabled={loading}><SyncIcon /> Sync data</button>
+            <br/>
             <button className="reset-button" onClick={handleReset} disabled={loading}>Reset attendance (mark all as absent)</button>
             <p class="error-message">{error}</p>
             <ul className="attendance-list">
