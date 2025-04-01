@@ -40,3 +40,12 @@ CREATE TABLE IF NOT EXISTS enrolled (
   FOREIGN KEY (cwid) REFERENCES students(cwid)
 );
 
+CREATE TABLE IF NOT EXISTS tickets (
+  TicketID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  hall VARCHAR(30) NOT NULL,
+  room INT(4) NOT NULL,
+  descript VARCHAR(400),
+  FOREIGN KEY (room) REFERENCES classrooms(room)
+);
