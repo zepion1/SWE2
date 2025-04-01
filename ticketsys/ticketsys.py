@@ -53,5 +53,15 @@ def View_Ticket():
     return 
     # WORK IN PROGRESS!
     
+@app.route('support/dashboard', methods =['GET','POST'])
+def View_IT_Dashboard():
+    # WORK IN PROGRESS!
+    return
+
+def search_ticket():
+    # WORK IN PROGRESS!
+    return
+
+
 if __name__ == '__main__':
     app.run(debug=True, host="localhost", port=9999)
