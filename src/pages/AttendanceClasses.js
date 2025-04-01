@@ -9,8 +9,10 @@ const AttendanceClasses = () => {
     const [attendanceData, setAttendanceData] = useState([]);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
+    const [resetTrigger, setResetTrigger] = useState(0);
 
     useEffect(() => {
+        setLoading(true);
         fetch(`http://127.0.0.1:5000/get-attendance-info/${className}`)
         .then(response => response.json())
         .then(data => {
@@ -25,10 +27,11 @@ const AttendanceClasses = () => {
                 ...prevData,
                 [className]: formattedAttenData
             }));
+            setLoading(false);
         })
 
         .catch(error => console.error('Error fetching attendance data:', error));
-    }, [className]);
+    }, [className, resetTrigger]);
 
     const handleReset = async () => {
             setLoading(true);
@@ -38,9 +41,9 @@ const AttendanceClasses = () => {
                 const response = await fetch(`http://127.0.0.1:5000/reset-class-attendance/${className}`);
                 if(!response.ok) {
                     throw new Error(`HTTP ERROR: ${response.status}`);
-                } else {
-                    window.location.reload();
                 }
+
+                setResetTrigger(prev => prev + 1);
          } catch (err) {
                 setError(err);
             } finally {
@@ -52,6 +55,7 @@ const AttendanceClasses = () => {
         <div className="attendance-page">
             <h1>Attendance for {className}</h1>{/*  Need to change this so it shows the class name instead of the id */}
             <button className="reset-button" onClick={handleReset} disabled={loading}>Reset attendance (mark all as absent)</button>
+            <p class="error-message">{error}</p>
             <ul className="attendance-list">
                 {attendanceData[className] ? (
                     attendanceData[className].map((student) => (
