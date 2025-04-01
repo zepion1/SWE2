@@ -7,6 +7,8 @@ const AttendanceClasses = () => {
     console.log("Navigated to attendance page for:", className);
 
     const [attendanceData, setAttendanceData] = useState([]);
+    const [loading, setLoading] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch(`http://127.0.0.1:5000/get-attendance-info/${className}`)
@@ -24,12 +26,32 @@ const AttendanceClasses = () => {
                 [className]: formattedAttenData
             }));
         })
+
         .catch(error => console.error('Error fetching attendance data:', error));
     }, [className]);
+
+    const handleReset = async () => {
+            setLoading(true);
+            setError(null);
+
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/reset-class-attendance/${className}`);
+                if(!response.ok) {
+                    throw new Error(`HTTP ERROR: ${response.status}`);
+                } else {
+                    window.location.reload();
+                }
+         } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
 
     return (
         <div className="attendance-page">
             <h1>Attendance for {className}</h1>{/*  Need to change this so it shows the class name instead of the id */}
+            <button className="reset-button" onClick={handleReset} disabled={loading}>Reset attendance (mark all as absent)</button>
             <ul className="attendance-list">
                 {attendanceData[className] ? (
                     attendanceData[className].map((student) => (
