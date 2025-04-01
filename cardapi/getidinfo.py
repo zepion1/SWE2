@@ -44,6 +44,21 @@ def get_attendance_info(classid):
     cnx.close()
     return result
 
+def set_status_to_zero(classid):
+    connect_to_database()
+
+    if cnx and cnx.is_connected():
+        with cnx.cursor() as cursor:
+            cursor.execute("UPDATE attendance SET present = '0' WHERE cid = %s", (classid,))
+            cnx.commit()
+
+            result = {"Rows updated": cursor.rowcount}
+    else:
+        result = {"Error"}
+    
+    cnx.close
+    return result
+
 def get_user_from_card(cardid):
     connect_to_database()
 
