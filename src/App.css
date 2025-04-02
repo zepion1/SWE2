@@ -296,76 +296,120 @@ button.sync-button:hover {
 
 /* ================================================================= */
 /* Room Change Request CSS */
-
 .room-change-request {
-  display: block;
-  padding-bottom: auto;
+  padding: 20px;
+  background-color: #181414;
+  color: #d0d6d6;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
-.room-change-request-header{
-  display: flex;
-  justify-content: space-between; /* Space between the title and the search bar */
-  align-items: center; /* Align items vertically */
-  margin-left: -45px;
-  margin-top: -10px;
-  padding: 10px 70px; /* Add consistent horizontal padding */
-  border: 1px solid #9a9a9a;
-  border-top: 0; /* Remove top border */
-  border-left: 0; /* Remove left border */
-  border-right: 0; /* Remove right border */
-  
+.room-change-request-header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .room-change-request-title {
-  font-size: xx-large;
-  color: #d0d6d6;
-  margin-bottom: 5px;
-}
-
-.room-change-request-subtitle {
-  font-size: large;
-  color: #d0d6d6;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #cc0000;
 }
 
 .tabs {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .tab {
   padding: 10px 20px;
   cursor: pointer;
   border: none;
-  background-color: #cc0000;
+  background-color: #302828;
   font-size: 16px;
   transition: background 0.3s, color 0.3s;
   margin-right: 10px;
   color: white;
+  border-radius: 5px;
 }
 
 .tab:hover {
-  background-color: #e60000bc;
+  background-color: #cc0000;
 }
 
 .tab.active {
-  background-color: #5b0000bc;
-  color: white;
+  background-color: #5b0000;
   font-weight: bold;
-  border-bottom: 2px solid #dfd8d8;
 }
 
 .tab-content {
-  text-align: center;
+  background-color: #302828;
   padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #9a9a9a;
+  border-radius: 8px;
+}
+
+.room-change-request-form .form-group {
+  margin-bottom: 15px;
+}
+
+.room-change-request-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.room-change-request-form input,
+.room-change-request-form textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: -1px;
+  background-color: #181414;
+  color: #d0d6d6;
+}
+
+.room-change-request-form button {
+  padding: 10px 20px;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.room-change-request-form button:hover {
+  background-color: #e60000;
+}
+
+.status-list,
+.history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.status-item,
+.history-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.status-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.status-date,
+.history-date {
+  font-weight: bold;
+  color: #cc0000;
+}
+
+.status-details,
+.history-action {
+  color: #d0d6d6;
 }
 
 
@@ -421,21 +465,132 @@ button.sync-button:hover {
 
 
 /* ================================================================= */
-/* IT support CSS */
+/* IT Support Page CSS */
 .it-support {
-  display: block;
-  padding-bottom: auto;
-  margin-left: 25px;
+  padding: 20px;
+  background-color: #181414;
+  color: #d0d6d6;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 20px auto;
 }
 
 .it-support-title {
-  font-size: xx-large;
-  color: #d0d6d6;
-  margin-bottom: 5px;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #cc0000;
 }
 
 .it-support-subtitle {
-  font-size: large;
-  color: #d0d6d6;
+  text-align: center;
+  font-size: 1.2rem;
   margin-bottom: 20px;
+  color: #d0d6d6;
+}
+
+.it-support-form {
+  background-color: #302828;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.it-support-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #cc0000;
+}
+
+.it-support-form .form-group {
+  margin-bottom: 15px;
+}
+
+.it-support-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.it-support-form input,
+.it-support-form textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #181414;
+  color: #d0d6d6;
+}
+
+.it-support-form button {
+  padding: 10px 20px;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.it-support-form button:hover {
+  background-color: #e60000;
+}
+
+.it-support-faqs {
+  margin-bottom: 20px;
+}
+
+.it-support-faqs h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #cc0000;
+}
+
+.it-support-faqs ul {
+  list-style: none;
+  padding: 0;
+}
+
+.it-support-faqs li {
+  margin-bottom: 15px;
+}
+
+.it-support-faqs h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #d0d6d6;
+}
+
+.it-support-faqs p {
+  font-size: 1rem;
+  color: #b0b0b0;
+}
+
+.it-support-resources {
+  margin-bottom: 20px;
+}
+
+.it-support-resources h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #cc0000;
+}
+
+.it-support-resources ul {
+  list-style: none;
+  padding: 0;
+}
+
+.it-support-resources li {
+  margin-bottom: 10px;
+}
+
+.it-support-resources a {
+  color: #d0d6d6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.it-support-resources a:hover {
+  color: #cc0000;
 }
