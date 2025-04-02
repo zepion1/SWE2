@@ -29,7 +29,7 @@ def fetch_attendance_info(classid):
     attendance = get_attendance_info(classid)
     return jsonify(attendance)
 
-@app.route("/reset-class-attendance/<classid>")
+@app.route("/reset-class-attendance/<classid>", methods=['POST'])
 def reset_attendance_info(classid):
     classes_reset = set_status_to_zero(classid)
     return jsonify(classes_reset)

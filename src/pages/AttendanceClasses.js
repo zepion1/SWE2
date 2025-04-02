@@ -42,7 +42,9 @@ const AttendanceClasses = () => {
             setError(null);
 
             try {
-                const response = await fetch(`http://127.0.0.1:5000/reset-class-attendance/${className}`);
+                const response = await fetch(`http://127.0.0.1:5000/reset-class-attendance/${className}`, {
+                    method: 'POST'
+                });
                 if(!response.ok) {
                     throw new Error(`HTTP ERROR: ${response.status}`);
                 }
