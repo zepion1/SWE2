@@ -1,3 +1,4 @@
+-- Active: 1740517144183@@127.0.0.1@3306@project_database
 CREATE TABLE IF NOT EXISTS student_ids (
     sid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     fname VARCHAR(255) NOT NULL,
