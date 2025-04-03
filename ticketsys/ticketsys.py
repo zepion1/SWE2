@@ -62,10 +62,9 @@ def View_Ticket():
                 connection.close()
     return jsonify(ticket)
     
-@app.route('support/dashboard', methods =['GET'])
+@app.route('support/dashboard', methods =['GET', 'POST'])
 def View_IT_Dashboard():
     connect_to_db()
-    data = request.form
     cursor = connection.cursor(dictionary=True)
     query = """SELECT * FROM Tickets WHERE Status = 'OPEN' """
     if request.method == 'GET':
@@ -77,9 +76,21 @@ def View_IT_Dashboard():
     return f"Loading all Open Tickets"
 
 def search_ticket():
-    # WORK IN PROGRESS!
-    return
+    connect_to_db()
+    cursor = connection.cursor(dictionary=True)
+    query = """SELECT * FROM Tickets WHERE TicketID LIKE CONCAT('%', %s,'%') 
+    or title LIKE CONCAT('%', %s,'%') 
+    or email LIKE CONCAT('%', %s,'%') 
+    or descript LIKE CONCAT('%', %s,'%')"""
+    
+    if request.method == 'POST':
+        search = request.args.get('search')
+        cursor.execute(query, (search, search, search, search,))
+        data = cursor.fetchall()
+        cursor.close()
+        connection.close()
+        return jsonify(data)
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="localhost", port=9999)
+    app.run(debug=True, host="localhost", port=5000)
