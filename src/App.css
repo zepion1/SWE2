@@ -436,12 +436,12 @@ button.sync-button:hover {
   background-color: #302828; /* Darker background for the calendar */
   border: none;
   border-radius: 8px;
-  color: #d0d6d6; /* Light text color */
+  color: #000000; /* Light text color */
 }
 
 .react-calendar__tile {
   background-color: #302828; /* Darker background for the tiles */
-  color: #d0d6d6; /* Light text color */
+  color: #000000; /* Light text color */
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -454,7 +454,7 @@ button.sync-button:hover {
 
 .react-calendar__tile--active {
   background-color: #cc0000; /* Red background for active tile */
-  color: rgb(128, 128, 128); /* White text color for active tile */
+  color: rgb(0, 0, 0); /* White text color for active tile */
 }
 
 .react-calendar__tile--now {
