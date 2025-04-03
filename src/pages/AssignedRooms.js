@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Sample room assignments data
 const roomAssignments = [
@@ -12,6 +12,9 @@ const roomAssignments = [
 ];
 
 const AssignedRooms = () => {
+    useEffect(() => {
+            document.title = "Assigned Room | MSU Companion";
+        }, []);
     return (
         <div className="assigned-rooms">
             <h1 className="assigned-rooms-title">Assigned Rooms</h1>
