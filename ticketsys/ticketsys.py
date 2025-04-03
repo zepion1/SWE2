@@ -50,13 +50,31 @@ def Close_Ticket():
     
 @app.route('/support/view-ticket', methods=['GET', 'POST'])   
 def View_Ticket(): 
-    return 
-    # WORK IN PROGRESS!
+    connect_to_db()
+    data = request.form
+    if request.method == 'GET':
+        ticket_id = data.get('ticket-id')
+        if connection and connection.is_connected():
+            with connection.cursor () as cursor:
+                cursor.execute(""" SELECT * FROM tickets WHERE TicketID = %s """, ticket_id,)
+                ticket = cursor.fetchone()
+                cursor.close()
+                connection.close()
+    return jsonify(ticket)
     
-@app.route('support/dashboard', methods =['GET','POST'])
+@app.route('support/dashboard', methods =['GET'])
 def View_IT_Dashboard():
-    # WORK IN PROGRESS!
-    return
+    connect_to_db()
+    data = request.form
+    cursor = connection.cursor(dictionary=True)
+    query = """SELECT * FROM Tickets WHERE Status = 'OPEN' """
+    if request.method == 'GET':
+        cursor.execute(query)
+        tickets = cursor.fetchall()
+        cursor.close()
+        connection.close()
+        return jsonify(tickets)
+    return f"Loading all Open Tickets"
 
 def search_ticket():
     # WORK IN PROGRESS!
