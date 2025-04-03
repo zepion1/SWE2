@@ -5,6 +5,7 @@ function Attendance() {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
+        document.title = "Attendance | MSU Companion";
         fetch('http://127.0.0.1:5000/get-classes/')
             .then(response => response.json())
             .then(data => {
