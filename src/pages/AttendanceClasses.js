@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ReactComponent as SyncIcon } from "./sync-svg.svg";
+import WebHid from "../components/WebHid.js";
 
 const AttendanceClasses = () => {
     const { className } = useParams();
@@ -64,6 +65,7 @@ const AttendanceClasses = () => {
             <br/>
             <button className="reset-button" onClick={handleReset} disabled={loading}>Reset attendance (mark all as absent)</button>
             <p class="error-message">{error}</p>
+            <WebHid />
             <ul className="attendance-list">
                 {attendanceData[className] ? (
                     attendanceData[className].map((student) => (
