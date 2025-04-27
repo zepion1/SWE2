@@ -50,8 +50,7 @@ CREATE TABLE IF NOT EXISTS tickets (
   FOREIGN KEY (room) REFERENCES classrooms(room)
 );
 
-#TeacherID, CurrentRoom, NewRoom, Reason, Status, CreatedAt
-CREATE TABLE room_change_requests (
+CREATE TABLE REQUEST (
     id INT AUTO_INCREMENT PRIMARY KEY,
     TeacherID VARCHAR(255) NOT NULL,
     CurrentRoom VARCHAR(255) NOT NULL,
