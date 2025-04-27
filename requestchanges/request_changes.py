@@ -53,3 +53,23 @@ def get_status():
     finally:
         cursor.close()
         conn.close()
+
+@app.route('/history', methods=['GET'])
+def get_history():
+    conn = connect_to_db()
+    cursor = conn.cursor(dictionary=True)
+
+    try:
+        query = "SELECT id, CreatedAt AS date, CONCAT('Submitted request for ', new_room) AS action FROM REQUEST ORDER BY created_at DESC"
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return jsonify(results)
+    except Exception as e:
+        print("Database Error:", e)
+        return jsonify([]), 500
+    finally:
+        cursor.close()
+        conn.close()
+
+if __name__ == '__main__':
+    app.run(debug=True, host="localhost", port=5000)
