@@ -49,3 +49,14 @@ CREATE TABLE IF NOT EXISTS tickets (
   descript VARCHAR(400),
   FOREIGN KEY (room) REFERENCES classrooms(room)
 );
+
+#TeacherID, CurrentRoom, NewRoom, Reason, Status, CreatedAt
+CREATE TABLE room_change_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    TeacherID VARCHAR(255) NOT NULL,
+    CurrentRoom VARCHAR(255) NOT NULL,
+    NewRoom VARCHAR(255) NOT NULL,
+    Reason TEXT NOT NULL,
+    Status VARCHAR(50) DEFAULT 'Pending',
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
