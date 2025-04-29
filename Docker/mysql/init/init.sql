@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS tickets (
     title VARCHAR(255) NOT NULL,
     email VARCHAR(40) NOT NULL,
     hall VARCHAR(30) NOT NULL,
-    room INT(4) NOT NULL,
+    roomid INT NOT NULL,
     descript VARCHAR(400),
-    FOREIGN KEY (room) REFERENCES classrooms (room)
+    FOREIGN KEY (roomid) REFERENCES classrooms (roomid)
 );
