@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ReactComponent as SyncIcon } from "./sync-svg.svg";
+import { ReactComponent as SyncIcon } from "../images/sync-svg.svg";
 // import WebHid from "../components/WebHid.js";
 
 const AttendanceClasses = () => {
