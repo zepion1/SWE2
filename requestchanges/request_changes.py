@@ -18,8 +18,8 @@ def connect_to_db():
     global connection
     connection = mysql.connector.connect(**config)
 
-@app.route('request-changes/submit-request', methods=['POST'])
-def submint_request():
+@app.route('/changes/submit-request', methods=['POST'])
+def submit_request():
     connect_to_db()
     data = request.form
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def submint_request():
     return f"Request Change has been created!"
 
 
-@app.route('request-changes/status', methods=['GET'])
+@app.route('/changes/status', methods=['GET'])
 def get_status():
     conn = connect_to_db()
     cursor = conn.cursor(dictionary=True)
@@ -54,7 +54,7 @@ def get_status():
         cursor.close()
         conn.close()
 
-@app.route('request-changes/history', methods=['GET'])
+@app.route('/changes/history', methods=['GET'])
 def get_history():
     conn = connect_to_db()
     cursor = conn.cursor(dictionary=True)
