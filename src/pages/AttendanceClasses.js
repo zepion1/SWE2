@@ -65,7 +65,7 @@ const AttendanceClasses = () => {
             <br/>
             <button className="reset-button" onClick={handleReset} disabled={loading}>Reset attendance (mark all as absent)</button>
             <p class="error-message">{error}</p>
-            <WebHid />
+            <WebHid classId={className}/>
             <ul className="attendance-list">
                 {attendanceData[className] ? (
                     attendanceData[className].map((student) => (
