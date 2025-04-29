@@ -2,8 +2,10 @@ from flask import Flask, request, redirect, jsonify, render_template, session, f
 import os
 import mysql.connector
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 config = {
     "host": os.getenv("DB_HOST"),
@@ -22,18 +24,14 @@ def Create_Ticket():
     connect_to_db()
     data = request.form
     if request.method == 'POST':
-        ticket_id = data.get('ticket-id')
-        title = data.get('title')
+        name = data.get('name')
         email = data.get('email')
-        hall = data.get('hall')
-        room = data.get('classroom-number')
-        description = data.get('description')
+        issue = data.get('issue')
         if connection and connection.is_connected():
             with connection.cursor() as cursor:
-                cursor.execute("""INSERT INTO tickets (TicketID, Title, Email, hall, room, descript, Status) VALUES
-                            (%s, %s, %s, %s, %s, %s , 'OPEN' )""", (ticket_id, title, email, hall, room, description,))
+                cursor.execute("""INSERT INTO tickets (name, email, issue, Status) VALUES (%s, %s, 'OPEN' )""", (name, email, issue,))
         connection.close()
-    return f"Ticket ID: {ticket_id} has been created!"
+    return print("Ticket has been created!")
     
 @app.route('/support/close-ticket', methods = ['POST'])
 def Close_Ticket():
@@ -62,7 +60,11 @@ def View_Ticket():
                 connection.close()
     return jsonify(ticket)
     
+<<<<<<< HEAD
 @app.route('support/dashboard', methods =['GET', 'POST'])
+=======
+@app.route('/support/dashboard', methods =['GET', 'POST'])
+>>>>>>> frontend
 def View_IT_Dashboard():
     connect_to_db()
     cursor = connection.cursor(dictionary=True)
@@ -93,4 +95,8 @@ def search_ticket():
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug=True, host="localhost", port=5000)
+=======
+    app.run(debug=True, host="127.0.0.1", port=5000)
+>>>>>>> frontend
