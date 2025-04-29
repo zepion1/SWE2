@@ -43,7 +43,7 @@ def get_status():
     cursor = conn.cursor(dictionary=True)
 
     try:
-        query = "SELECT id, Status, CreatedAt AS date, CONCAT('Room change request for ', NewRoom) AS details FROM REQUEST ORDER BY created_at DESC"
+        query = """SELECT id, Status, CreatedAt AS date, CONCAT('Room change request for ', NewRoom) AS details FROM REQUEST ORDER BY created_at DESC"""
         cursor.execute(query)
         results = cursor.fetchall()
         return jsonify(results)
@@ -60,7 +60,7 @@ def get_history():
     cursor = conn.cursor(dictionary=True)
 
     try:
-        query = "SELECT id, CreatedAt AS date, CONCAT('Submitted request for ', NewRoom) AS action FROM REQUEST ORDER BY created_at DESC"
+        query = """SELECT id, CreatedAt AS date, CONCAT('Submitted request for ', NewRoom) AS action FROM REQUEST ORDER BY created_at DESC"""
         cursor.execute(query)
         results = cursor.fetchall()
         return jsonify(results)
