@@ -37,7 +37,7 @@ def submint_request():
     return f"Request Change has been created!"
 
 
-@app.route('rrequest-changes/status', methods=['GET'])
+@app.route('request-changes/status', methods=['GET'])
 def get_status():
     conn = connect_to_db()
     cursor = conn.cursor(dictionary=True)
