@@ -418,51 +418,83 @@ button.sync-button:hover {
 .calendar-page {
   padding: 20px;
   background-color: #181414; /* Dark background */
-  color: #181a1a; /* Light text color */
+  color: #d0d6d6; /* Light text color */
   border-radius: 8px;
   max-width: 800px;
   margin: 20px auto; /* Center the content */
+  text-align: center;
 }
 
 .calendar-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
   color: #cc0000; /* Red color for the title */
+  margin-bottom: 10px;
+}
+
+.calendar-subtitle {
+  font-size: 1.2rem;
+  color: #d0d6d6; /* Light text color */
+  margin-bottom: 20px;
 }
 
 .react-calendar {
-  width: 100%;
-  background-color: #302828; /* Darker background for the calendar */
-  border: none;
-  border-radius: 8px;
-  color: #000000; /* Light text color */
+  width: 100% !important;
+  background-color: #302828 !important; /* Darker background for the calendar */
+  border: none !important;
+  border-radius: 8px !important;
+  color: #d0d6d6 !important; /* Light text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; /* Add a subtle shadow */
+  padding: 10px !important;
 }
 
 .react-calendar__tile {
-  background-color: #302828; /* Darker background for the tiles */
-  color: #000000; /* Light text color */
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  background-color: #302828 !important; /* Darker background for the tiles */
+  color: #d0d6d6 !important; /* Light text color */
+  border-radius: 4px !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
 }
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: #cc0000; /* Red background on hover and focus */
-  color: rgb(148, 51, 51); /* White text color on hover and focus */
+  background-color: #cc0000 !important; /* Red background on hover and focus */
+  color: white !important; /* White text color on hover and focus */
 }
 
 .react-calendar__tile--active {
-  background-color: #cc0000; /* Red background for active tile */
-  color: rgb(0, 0, 0); /* White text color for active tile */
+  background-color: #cc0000 !important; /* Red background for active tile */
+  color: white !important; /* White text color for active tile */
 }
 
 .react-calendar__tile--now {
-  background-color: #5b0000bc; /* Dark red background for current date */
-  color: rgb(17, 15, 15); /* White text color for current date */
+  background-color: #5b0000bc !important; /* Dark red background for current date */
+  color: white !important; /* White text color for current date */
 }
 
+.react-calendar__navigation button {
+  background-color: #302828 !important; /* Match the calendar background */
+  color: #d0d6d6 !important; /* Light text color */
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 10px !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
 
+.react-calendar__navigation button:hover {
+  background-color: #cc0000 !important; /* Red background on hover */
+  color: white !important; /* White text color on hover */
+}
+
+.react-calendar__month-view__weekdays {
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  color: #d0d6d6 !important; /* Light text color */
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #cc0000 !important; /* Red color for weekends */
+}
+
+/*NOTE: I hate that I had to use !important, this react-react calendar was a pain to style */
 
 /* ================================================================= */
 /* IT Support Page CSS */
