@@ -1,0 +1,61 @@
+CREATE TABLE IF NOT EXISTS students (
+  cwid INT(8) PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS courses (
+  courseID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  courseName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS professors (
+  professorID INT(8) PRIMARY KEY NOT NULL,
+  professorName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS classrooms (
+  classroomID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  building varchar(10) NOT NULL,
+  room INT(4) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sections (
+  sectionID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  section INT(8) NOT NULL,
+  #Foreign Elements
+  courseID INT NOT NULL,
+  professorID INT NOT NULL,
+  classroomID INT NOT NULL,
+  FOREIGN KEY (courseID) REFERENCES courses(courseID),
+  FOREIGN KEY (professorID) REFERENCES professors(professorID),
+  FOREIGN KEY (classroomID) REFERENCES classrooms(classroomID)
+);
+
+CREATE TABLE IF NOT EXISTS enrolled (
+  eid INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  #Foreign Elements
+  sectionID INT NOT NULL,
+  cwid INT(8) NOT NULL,
+  FOREIGN KEY (sectionID) REFERENCES sections(sectionID),
+  FOREIGN KEY (cwid) REFERENCES students(cwid)
+);
+
+CREATE TABLE IF NOT EXISTS tickets (
+  TicketID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  hall VARCHAR(30) NOT NULL,
+  room INT(4) NOT NULL,
+  descript VARCHAR(400),
+  FOREIGN KEY (room) REFERENCES classrooms(room)
+);
+
+CREATE TABLE REQUEST (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    TeacherID VARCHAR(255) NOT NULL,
+    CurrentRoom VARCHAR(255) NOT NULL,
+    NewRoom VARCHAR(255) NOT NULL,
+    Reason TEXT NOT NULL,
+    Status VARCHAR(50) DEFAULT 'Pending',
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
