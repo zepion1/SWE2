@@ -51,13 +51,11 @@ CREATE TABLE IF NOT EXISTS enrolled (
   FOREIGN KEY (sectionID) REFERENCES sections(sectionID),
   FOREIGN KEY (cwid) REFERENCES students(cwid)
 );
-
+--name, email, issue, Status
 CREATE TABLE IF NOT EXISTS tickets (
     TicketID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(40) NOT NULL,
-    hall VARCHAR(30) NOT NULL,
-    room INT(4) NOT NULL,
-    descript VARCHAR(400),
-    FOREIGN KEY (room) REFERENCES classrooms (room)
+    issue VARCHAR(400) NOT NULL,
+    Status VARCHAR(50) DEFAULT 'OPEN'
 );

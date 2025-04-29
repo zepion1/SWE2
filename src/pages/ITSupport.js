@@ -1,9 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const ITSupport = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        issue: ''
+    });
+
+    const [submitted, setSubmitted] = useState(false);
+
     useEffect(() => {
         document.title = "IT Support | MSU Companion";
     }, []);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setSubmitted(false);
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/support/create-ticket', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            console.log('Server response:', result);
+            setSubmitted(true);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
+    };
 
     const faqs = [
         {
@@ -34,20 +70,44 @@ const ITSupport = () => {
             {/* Contact Form */}
             <div className="it-support-form">
                 <h2>Contact IT Support</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="issue">Issue</label>
-                        <textarea id="issue" name="issue" placeholder="Describe your issue" required></textarea>
+                        <textarea
+                            id="issue"
+                            name="issue"
+                            placeholder="Describe your issue"
+                            value={formData.issue}
+                            onChange={handleChange}
+                            required
+                        ></textarea>
                     </div>
                     <button type="submit">Submit</button>
+                    {submitted && <p className="form-success">Your issue has been submitted!</p>}
                 </form>
             </div>
 
