@@ -9,6 +9,7 @@ import AttendanceClasses from "./pages/AttendanceClasses.js";
 import AssignedRooms from "../src/pages/AssignedRooms.js";
 import CalendarPage from "../src/pages/Calendar.js";
 import Attendance from "../src/pages/Attendance.js";
+import RequestDetails from "./pages/RequestDetails.js";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/room-changes" element={<RoomChangeRequest />} />
+          <Route path="/request-details/:id" element={<RequestDetails />} />
           <Route path="/it-support" element={<ITSupport />} />
           <Route path="/home" element={<Home />} />
           <Route path="/attendance" element={<Attendance />} />

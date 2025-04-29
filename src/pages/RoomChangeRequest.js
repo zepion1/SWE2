@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AcceptedIcon from "../images/acceptedStatus.svg";
 import PendingIcon from "../images/pendingStatus.svg";
 import DeniedIcon from "../images/deniedStatus.svg";
@@ -81,11 +82,13 @@ const RoomChangeRequest = () => {
                         <ul className="status-list">
                             {statusData.map((item) => (
                                 <li key={item.id} className="status-item">
-                                    {getStatusIcon(item.status)}
-                                    <div>
-                                        <p className="status-date">{item.date}</p>
-                                        <p className="status-details">{item.details}</p>
-                                    </div>
+                                    <Link to={`/request-details/${item.id}`} className="status-link">
+                                        {getStatusIcon(item.status)}
+                                        <div>
+                                            <p className="status-date">{item.date}</p>
+                                            <p className="status-details">{item.details}</p>
+                                        </div>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
