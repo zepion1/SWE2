@@ -39,17 +39,30 @@ function WebHid({ classId }) {
     async function reconnectDevice() {
         try {
             const devices = await navigator.hid.getDevices();
+            
             if (devices.length > 0) {
-                const device = devices[0];
+            const device = devices[0];
+
+            try {
                 if (!device.opened) {
                     await device.open();
                 }
-                setupDevice(device);
-                setConnectedDevice(device);
-                console.log("Reconnected to device:", device.productName);
-            } else {
-                console.log("No authorized HID devices found.");
+            } catch (error) {
+                if (error.name === 'NotAllowedError') {
+                    console.warn("Permission lost or denied. Ask user to reconnect manually.");
+                    return; // Stop further setup
+                } else {
+                    throw error;
+                }
             }
+
+            setupDevice(device);
+            setConnectedDevice(device);
+            console.log("Reconnected to device:", device.productName);
+        } else {
+            console.log("No authorized HID devices found.");
+        }
+
         } catch (error) {
             console.error("Reconnect error:", error);
         }
