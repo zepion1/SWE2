@@ -164,3 +164,21 @@ gcc -o CardReader_MACOS CardReader_MACOS.c -lcurl
 ./CardReader_MACOS
 ```
 **Make Sure the Magnetic Reader is connected properly!**
+
+### Test Cases
+To run test cases run:
+```bash
+make run_test
+```
+To clean up run:
+```bash
+make clean
+```
+To run attendance:
+```bash
+make run
+```
+To build up attendance run:
+```bash
+make
+```
