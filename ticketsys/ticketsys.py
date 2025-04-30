@@ -60,11 +60,7 @@ def View_Ticket():
                 connection.close()
     return jsonify(ticket)
     
-<<<<<<< HEAD
-@app.route('support/dashboard', methods =['GET', 'POST'])
-=======
 @app.route('/support/dashboard', methods =['GET', 'POST'])
->>>>>>> frontend
 def View_IT_Dashboard():
     connect_to_db()
     cursor = connection.cursor(dictionary=True)
@@ -95,8 +91,4 @@ def search_ticket():
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    app.run(debug=True, host="localhost", port=5000)
-=======
     app.run(debug=True, host="127.0.0.1", port=5000)
->>>>>>> frontend
