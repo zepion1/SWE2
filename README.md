@@ -1,10 +1,10 @@
 # Overview
 
-This project was created with express purpose to help streamline the classroom management processes for educators at Montclair State University.
+This project was created with express purpose to help streamline the classroom management processes for educators and to improve the IT support system at Montclair State University.
 
-These processes include; a scan-in attendance system that would automatically update Canvas with a student's attendence record, and system to simplify IT support ticket creation taht would directly send tickets to MSU-IT service now.
+These processes include a scan-in attendance system that would automatically update Canvas with a student's attendence record and a system to simplify IT support ticket creation that would directly send tickets to MSU-IT service.
 
-In it's current iteration; the record of attendence and IT support tickerts are kept within a locally hosted database
+In its current iteration; the record of attendence and IT support tickerts are kept within a locally-hosted database.
 
 * Docker was used to host the primary database
 * React was used to create our web client
