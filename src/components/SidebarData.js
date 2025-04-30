@@ -21,7 +21,7 @@ export const SidebarData = [
     },
     {
         title: "Canvas",
-        path: "https://www.montclair.edu/canvas/",
+        path: "https://montclair.instructure.com/",
         icon: <CanvasLogo style={{ width: 24, height: 24 }} />,
     },
     {
