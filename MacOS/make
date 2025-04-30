@@ -1,23 +1,21 @@
-# Makefile for Attendance System with Test Support
-
 CC = gcc
 CFLAGS = -Wall
 SRC = CardReader_MACOS.c
 
-# Targets
+
 all: attendance_app
 
 attendance_app: $(SRC)
-	$(CC) $(CFLAGS) -o attendance_app $(SRC)
+	$(CC) $(CFLAGS) -o attendance $(SRC)
 
 test: $(SRC)
-	$(CC) $(CFLAGS) -DTEST -o test_app $(SRC)
+	$(CC) $(CFLAGS) -DTEST -o test_cases $(SRC)
 
-run: attendance_app
-	./attendance_app
+run: attendance
+	./attendance
 
 run_test: test
-	./test_app
+	./test_cases
 
 clean:
-	rm -f attendance_app test_app
+	rm -f attendance test_cases
